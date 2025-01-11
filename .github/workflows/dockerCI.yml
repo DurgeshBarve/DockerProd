@@ -7,4 +7,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Build the Docker image
-      run: docker build -f Dockerfile.dev .
+      run: docker build .
+
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - name: install docker-compose
+      uses: hoverkraft-tech/compose-action@v2.0.1
+      with:
+        compose-file: "./docker-compose.yml"
+    - name: execute tests docker compose
+        run:|
+          docker-compose up --build
