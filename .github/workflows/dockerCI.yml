@@ -6,6 +6,12 @@ jobs:
   develop:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag durgeshimage
+      run: docker build . --file Dockerfile.dev --tag durgeshimage
+
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    
+    - name: Build Docker-compose
+      run: docker-compose up --build . 
