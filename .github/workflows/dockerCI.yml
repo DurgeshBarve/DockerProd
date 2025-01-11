@@ -8,10 +8,3 @@ jobs:
     steps:
     - name: Build the Docker image
       run: docker build . --file Dockerfile.dev --tag durgeshimage
-
-  test:
-    runs-on: ubuntu-latest
-    steps:
-    
-    - name: Build Docker-compose
-      run: docker-compose up --build . 
